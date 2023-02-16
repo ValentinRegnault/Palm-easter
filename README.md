@@ -31,3 +31,71 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 
 # Technologies utilisées :
 On va utiliser firebase, le service d'hébergement de google, qui est très simple d'utilisation et pas cher. On utilisera en particulier [firebase cloud function](https://firebase.google.com/docs/functions?hl=en) pour la partie logique et [realtime database](https://firebase.google.com/docs/database?hl=en) pour la base de donnée.
+
+**Structure de la base de donnée**
+Realtime database est une base de donnée en arborescence, comme un fichier JSON. La structure de ce JSON est la suivante :
+
+- Il y a deux objets racines : *questions* et *users*
+    - *questions* est un tableau de toutes les questions. Chaque questions a différent champs:
+        - *id* un identifiant unique
+        - *questionText* le texte de la question
+        - *answer* la réponse de la question
+        - *questionType* le type de la question. Peut être "textAnswer" (une question qui attends une réponse sous forme d'un texte) ou "multipleChoices" (une question à choix multiple)
+        - *choices* dans le cas ou *questionType* est "textAnswer", ce champs est nul. Sinon il contient un tableau des choix possibles de réponses.
+    - *users* un tableau de tout les utilisateurs. Chaque utilisateur a différent champs :
+        - *id* un identifiant unique
+        - *firstName* le prénom de l'utilisateur 
+        - *lastName* le nom de famille de l'utilisateur
+        - *choosenPath* le parcours choisi par l'utilisateur
+        - *pathValidationDate* Si l'utilisateur a terminé son parcours, la date a laquelle il l'a complété, sinon null.
+        - *firstToCompletePath* true si et seulement si l'utilisateur est le premier a avoir terminé son parcours.
+        - *questions* un tableau des questions qui ont été assignée a l'utilisateur. Chaque question a les champs suivants :
+            - *id* un identifiant unique
+            - *validated* true si et seulement si l'utilisateur a répondu correctement a cette question
+            - *validationDate* si la question a été validé, la date a laquelle elle a été validé, sinon null 
+
+```
+{
+    questions: [
+        {
+            id: "0000000",
+            questionText: "Dans le guide du voyager galactique, quel est la réponse à la Vie, l'Univers et le Reste, qui a été calculée par un supercalculateur construit autour d'une étoile, pendant des millions d'années ?"
+            answer: "42",
+            choices: null,
+            questionType: "textAnswer",
+        },
+        {
+            id: "0000001",
+            questionText: "Parmi les choix suivants, qui est l'informaticien qui a fondé la calculabilité ?"
+            answer: "Alan Turing",
+            choices: ["Alan Turing", "Ada Lovelace", "Linus Torwald"],
+            questionType: "multipleChoices",
+        }
+    ],
+    users: [
+        {
+            id: "000000001",
+            firstName: "Alexis",
+            lastName: "Deffains",
+            choosenPath: "cybersecurity",
+            pathValidationDate: null,
+            firstToCompletePath: false,
+            questions: [
+                {
+                    id: "00000001",
+                    validated: false,
+                    validationDate: null,
+                },
+                {
+                    id: "00000002",
+                    validated: true,
+                    validationDate: "2023 2 March 12:00:01:43",
+                }
+            ],
+        }
+    ]
+}
+``` 
+
+
+
