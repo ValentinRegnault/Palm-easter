@@ -39,14 +39,12 @@ Le front sera fait sans framework, seulement vite.js (un gestionnaire de paquets
 Realtime database est une base de donnée en arborescence, comme un fichier JSON. La structure de ce JSON est la suivante :
 
 - Il y a deux objets racines : *questions* et *users*
-    - *questions* est un tableau de toutes les questions. Chaque questions a différent champs:
-        - *id* un identifiant unique
+    - *questions* contient toutes les questions. Chaque questions a différent champs:
         - *questionText* le texte de la question
         - *answer* la réponse de la question
         - *questionType* le type de la question. Peut être "textAnswer" (une question qui attends une réponse sous forme d'un texte) ou "multipleChoices" (une question à choix multiple)
         - *choices* dans le cas ou *questionType* est "textAnswer", ce champs est nul. Sinon il contient un tableau des choix possibles de réponses.
-    - *users* un tableau de tout les utilisateurs. Chaque utilisateur a différent champs :
-        - *id* un identifiant unique
+    - *users* contient tout les utilisateurs. Chaque utilisateur a différent champs :
         - *firstName* le prénom de l'utilisateur 
         - *lastName* le nom de famille de l'utilisateur
         - *choosenPath* le parcours choisi par l'utilisateur
@@ -62,14 +60,13 @@ Voici un exemple :
 ```
 {
     questions: [
-        {
-            id: "0000000",
+        "ID UNIQUE": {
             questionText: "Dans le guide du voyager galactique, quel est la réponse à la Vie, l'Univers et le Reste, qui a été calculée par un supercalculateur construit autour d'une étoile, pendant des millions d'années ?"
             answer: "42",
             choices: null,
             questionType: "textAnswer",
         },
-        {
+        "ID UNIQUE 2":{
             id: "0000001",
             questionText: "Parmi les choix suivants, qui est l'informaticien qui a fondé la calculabilité ?"
             answer: "Alan Turing",
@@ -78,7 +75,7 @@ Voici un exemple :
         }
     ],
     users: [
-        {
+        "ID UNIQUE" :{
             id: "000000001",
             firstName: "Alexis",
             lastName: "Deffains",

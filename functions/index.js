@@ -22,11 +22,24 @@ exports.deployQuestions = functions.https.onRequest((req, res) => {
     functions.logger.info("Deploying questions to the database...")
     const questions = require("./questions.json");  
 
-    db.ref("questions").set(questions).then(() => {
+    const questionsRef = db.ref("questions");
+
+    questionsRef.set({});
+
+    let updates = {}
+
+    for (const question of questions) {
+        updates[questionsRef.push().key] = question;
+    }
+
+    questionsRef.update(updates).then(() => {
         res.status(200).send("Questions loaded to database !")
     })
     .catch(() => {
         res.status(403).send("An error occured :/");
     })
+})
+
+exports.getQuestions = functions.https.onRequest((req, res) => {
 
 })
