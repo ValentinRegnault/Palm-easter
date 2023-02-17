@@ -17,6 +17,7 @@ Les étudiants peuvent répondre a leur dernière question et savoir s'ils ont r
 Le staff doit avoir un accès simple aux parcours et aux questions qui ont été répondue par un étudiant, a partir de son nom et prénom, et savoir si une personne est la première a avoir completer toute ses questions. Cet accès doit être réservé au staff par un mot de passe.
 
 # Liste des taches
+- Faire un endpoint de l'api qui déploie les questions dans la base de donnée. Il prends en paramètre un mot de passe. Il charge les questions qui se trouve dans `functions/questions.json`.
 - Faire un endpoint de l'api qui retourne les questions d'un étudiant, en prenant en paramètre le nom et le prénom de l'étudiant. Si c'est la première connection de l'étudiant, on choisira un certain nombre de question aléatoirement et on stocke la liste des questions choisi. Sinon, on renvoie la liste précédement générée.
 
 - Faire un endpoint de l'api qui permet de valider une question. Il prends en paramètre l'id de la question et la réponse soumise par l'utilisatuer, et retourne si oui on non la réponse est correcte. De plus, si la réponse est correcte, il stocke dans la base de donnée que l'utilisateur a validé la question, la date a laquelle il l'a validée, et vérifie si il a fini son parcours en premier.
