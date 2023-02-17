@@ -32,6 +32,8 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 # Technologies utilisées :
 On va utiliser firebase, le service d'hébergement de google, qui est très simple d'utilisation et pas cher. On utilisera en particulier [firebase cloud function](https://firebase.google.com/docs/functions?hl=en) pour la partie logique et [realtime database](https://firebase.google.com/docs/database?hl=en) pour la base de donnée.
 
+Le front sera fait sans framework, seulement vite.js (un gestionnaire de paquets, qui va permettre d'installer des dépendances facilement)
+
 **Structure de la base de donnée**
 Realtime database est une base de donnée en arborescence, comme un fichier JSON. La structure de ce JSON est la suivante :
 
@@ -98,6 +100,16 @@ Voici un exemple :
     ]
 }
 ``` 
+# Comment commencer
 
+Pour lancer l'application sur votre machine vous aurez besoin d'installer [node.js](https://nodejs.org/en/). Une fois que c'est fait vous pourrez utiliser la commande `npm install -g firebase-tools` pour installer les outils de developpement de firebase. 
+Vous avez fait le plus dur !
 
+Pour lancer le projet sur votre machine, vous avez deux étapes a faire :
+- compiler le frontend de l'application.
+- lancer l'émulateur de firebase.
+
+1) Le dossier **front** à la racine du projet contient le frontend de l'application (les fichiers .html, .css et .js). On utilise [vite.js](https://vitejs.dev/). Pour compiler le front, ouvrez un terminal, allez dans le dossier front avec la commande `cd`. Si c'est la première fois que vous lancer le projet, utiliser la commande `npm install`, pour installer toutes les dépendances. Puis pour compiler l'application utilisez `npm run build`. Cela va générer un dossiere `dist` qui contient votre page. 
+
+2) Vous pouvez alors revenir a la racine du projet avec `cd ..` et utiliser la commande `firebase emulators:start`. Cela lancer un émulateur de firebase. Le site est alors héberger sur votre machine et accessible depuis votre réseau local. Vous pouvez acceder a l'interface de l'émulateur à l'adresse `http://127.0.0.1:4000/`. Pour voir le front de l'application, c'est à l'adresse `http://127.0.0.1:5000/`. 
 

@@ -15,23 +15,10 @@
       "predeploy": [
         "npm --prefix \"$RESOURCE_DIR\" run lint"
       ]
-    },
-    {
-      "source": "back",
-      "codebase": "back",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
-      ],
-      "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run lint"
-      ]
     }
   ],
   "hosting": {
-    "public": "public",
+    "public": "front/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
