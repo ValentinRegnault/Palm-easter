@@ -54,6 +54,8 @@ Realtime database est une base de donnée en arborescence, comme un fichier JSON
             - *validated* true si et seulement si l'utilisateur a répondu correctement a cette question
             - *validationDate* si la question a été validé, la date a laquelle elle a été validé, sinon null 
 
+Voici un exemple :
+
 ```
 {
     questions: [
