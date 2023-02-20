@@ -1,5 +1,5 @@
 # Palm-easter
- Le site d'un jeu de piste dans l'istic, pour Pâque, organiser par l'association la Palme (BDE de l'istic)
+ Le site d'un jeu de piste dans l'istic, pour Pâques, organiser par l'association la Palme (BDE de l'istic)
 
 # Cahier des charges
 Le site doit permettre aux étudiants de l'istic d'obtenir des questions/enigme aléatoire
@@ -18,15 +18,15 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 
 # Liste des taches
 - [x] Faire un endpoint de l'api qui déploie les questions dans la base de donnée. Il prends en paramètre un mot de passe. Il charge les questions qui se trouve dans `functions/questions.json`.
-- [ ] Faire un endpoint de l'api qui retourne les questions d'un étudiant, en prenant en paramètre le nom et le prénom de l'étudiant. Si c'est la première connection de l'étudiant, on choisira un certain nombre de question aléatoirement et on stocke la liste des questions choisi. Sinon, on renvoie la liste précédement générée.
+- [ ] Faire une cloud function qui génère les questions d'un étudiant quand un nouvel étudiant est ajouté. Il choisit un certain nombre de questions aléatoirement.
 
-- [ ] Faire un endpoint de l'api qui permet de valider une question. Il prends en paramètre l'id de la question et la réponse soumise par l'utilisatuer, et retourne si oui on non la réponse est correcte. De plus, si la réponse est correcte, il stocke dans la base de donnée que l'utilisateur a validé la question, la date a laquelle il l'a validée, et vérifie si il a fini son parcours en premier.
+- [ ] Faire un endpoint de l'api (cloud function) qui permet de valider une question. Il prends en paramètre l'id de la question et la réponse soumise par l'utilisatuer, et retourne si oui on non la réponse est correcte. De plus, si la réponse est correcte, il stocke dans la base de donnée que l'utilisateur a validé la question, la date a laquelle il l'a validée, et vérifie si il a fini son parcours en premier.
 
 - [ ] Faire un endpoint de l'api qui prend en paramètre un mot de passe que seul le staff connaitra, ainsi que le nom et prénom d'un étudiant, et qui retourne la liste des questions de cette personne, quelle question il a validé, et s'il a fini son parcours en premier.
 
 - [ ] Faire le front : 
-    - [ ] faire un formulaire qui permet de s'authentifier (nom et prénom)
-    - [ ] faire une requête vers le serveur pour recupérer les questions
+    - [ ] faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute a la bdd l'étudiant si c'est sa première connection.
+    - [ ] Ecouter la bdd pour les update des question de l'étudiant.
     - [ ] afficher la question en cours (la première question non validée, dans l'ordre des questions) de différente manière selon le type de question (choix multiple, réponse textuel, vrai/faux)
     - [ ] envoyer une requête vers le serveur quand l'utilisateur répond à une question, et afficher si la réponse est correcte ou incorrecte.
 
