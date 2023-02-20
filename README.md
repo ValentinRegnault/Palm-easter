@@ -76,40 +76,40 @@ Voici un exemple :
 ```
 {
 questions : [
-        "ID UNIQUE": {
-questionText : "Dans le guide du voyageur galactique, quelle est la réponse à la Vie, l'Univers et le Reste, qui a été calculée par un supercalculateur construit autour d'une étoile, pendant des millions d'années ?"
-answer : "42",
-choices : null,
-questionType : "textAnswer",
-},
-"ID UNIQUE 2":{
-id : "0000001",
-questionText : "Parmi les choix suivants, qui est l'informaticien qui a fondé la calculabilité ?"
-answer : "Alan Turing",
-choices : ["Alan Turing", "Ada Lovelace", "Linus Torwald"],
-questionType : "multipleChoices",
-}
+    "ID UNIQUE": {
+        questionText : "Dans le guide du voyageur galactique, quelle est la réponse à la Vie, l'Univers et le Reste, qui a été calculée par un supercalculateur construit autour d'une étoile, pendant des millions d'années ?"
+        answer : "42",
+        choices : null,
+        questionType : "textAnswer",
+    },
+    "ID UNIQUE 2":{
+        id : "0000001",
+        questionText : "Parmi les choix suivants, qui est l'informaticien qui a fondé la calculabilité ?"
+        answer : "Alan Turing",
+        choices : ["Alan Turing", "Ada Lovelace", "Linus Torwald"],
+        questionType : "multipleChoices",
+    }
 ],
     users : [
         "ID UNIQUE" :{
-id : "000000001",
-firstName : "Alexis",
-lastName : "Deffains",
-choosenPath : "cybersecurity",
-pathValidationDate : null,
-firstToCompletePath : false,
-questions : [
+            id : "000000001",
+            firstName : "Alexis",
+            lastName : "Deffains",
+            choosenPath : "cybersecurity",
+            pathValidationDate : null,
+            firstToCompletePath : false,
+            questions : [
                 {
                     id : "00000001",
-validated : false,
-validationDate : null,
-},
-{
-id : "00000002",
-validated : true,
-validationDate : "2023 2 March 12 : 00 : 01 : 43",
-}
-],
+                    validated : false,
+                    validationDate : null,
+                },
+                {
+                    id : "00000002",
+                    validated : true,
+                    validationDate : "2023 2 March 12 : 00 : 01 : 43",
+                }
+            ],
         }
     ]
 }
