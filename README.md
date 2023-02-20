@@ -35,10 +35,10 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 
 
 - [ ] Faire le front :
-- [ ] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion.
-- [ ] Écouter la bdd pour les updates des questions de l'étudiant.
-- [ ] Afficher la question en cours (la première question non validée, dans l'ordre des questions) de différente manière selon le type de question (choix multiple, réponse textuelle, vrai/faux)
-- [ ] Envoyer une requête vers le serveur quand l'utilisateur répond à une question, et afficher si la réponse est correcte ou incorrecte.
+    - [ ] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion.
+    - [ ] Écouter la bdd pour les updates des questions de l'étudiant.
+    - [ ] Afficher la question en cours (la première question non validée, dans l'ordre des questions) de différente manière selon le type de question (choix multiple, réponse textuelle, vrai/faux)
+    - [ ] Envoyer une requête vers le serveur quand l'utilisateur répond à une question, et afficher si la réponse est correcte ou incorrecte.
 
 
 # Technologies utilisées :
@@ -58,6 +58,7 @@ Realtime database est une base de données en arborescence, comme un fichier JSO
     - *answer* la réponse de la question
     - *questionType* le type de la question. Peut-être "textAnswer" (une question qui attend une réponse sous forme d'un texte) ou "multipleChoices" (une question à choix multiple).
     - *choices* dans le cas ou *questionType* est "textAnswer", ce champs est nul. Sinon il contient un tableau des choix possibles de réponses.
+    - *level* Le niveau de la question. Les niveaux vont de 0 à QUESTION_MAX_LEVEL (constante dans le fichier index.js du dossier functions)
 - *users* contient tous les utilisateurs. Chaque utilisateur a différent champs :
     - *firstName* le prénom de l'utilisateur
     - *lastName* le nom de famille de l'utilisateur

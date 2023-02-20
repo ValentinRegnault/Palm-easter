@@ -3,12 +3,14 @@
         "questionText": "Qui est Alan Turing ?",
         "answer": "Le fondateur de la calculabilité",
         "questionType": "multipleChoices",
-        "choices": ["Le créateur du premier ordinateur", "l'inventeur de code hamming", "Le créateur de linux", "le fondateur de la calculabilité"]
+        "choices": ["Le créateur du premier ordinateur", "l'inventeur de code hamming", "Le créateur de linux", "le fondateur de la calculabilité"],
+        "level": 2
     },
     {
         "questionText": "Quel est le nom de famille de l'informaticienne la plus connue de l'histoire ?",
         "answer": "Lovelace",
         "questionType": "textAnswer",
-        "choices": null
+        "choices": null,
+        "level": 1
     }
 ]
