@@ -43,25 +43,54 @@ exports.onUserCreated = functions.database.ref("/users/{userId}")
         console.log("A user was created, generating questions")
         let allQuestions = (await snapshot.ref.root.child("questions").get()).val();
 
-        let choosenQuestions = []
+        let choosenQuestionsIndices = []
         for (let i = 0; i < QUESTIONS_COUNT_BY_LEVEL.length; i++) {
             let questionsLevelI = Object.values(allQuestions).filter(q => q.level == i);
             let differentQuestion = 0;
             while (differentQuestion < QUESTIONS_COUNT_BY_LEVEL[i]) {
                 let rdIndex = Math.floor(Math.random() * questionsLevelI.length)
-                if (!choosenQuestions.includes(rdIndex)) {
-                    choosenQuestions.push(rdIndex)
+                if (!choosenQuestionsIndices.includes(rdIndex)) {
+                    choosenQuestionsIndices.push(rdIndex)
                     differentQuestion++
                 }
             }
         }
 
         let allQuestionsIds = Object.keys(allQuestions)
-        let choosenQuestionsIds = choosenQuestions.map(index => allQuestionsIds[index])
-
-        console.log("choosenQuestionsIds: ", choosenQuestionsIds)
-
+        let choosenQuestions = {}
+        for (const index of choosenQuestionsIndices) {
+            choosenQuestions[allQuestionsIds[index]] = {
+                validated: false,
+                validationDate: null
+            }
+        }
         snapshot.ref.update({
-            questions: choosenQuestionsIds
+            questions: choosenQuestions
         })
     })
+
+/**
+ * Validate if a answer is the right answer
+ * @param questionId the id of the question
+ * @param studentNumber the student answering the question
+ * @param studentAnswer the answer sent by the student
+ */
+exports.validateQuestion = functions.https.onRequest(async (req, res) => {
+    let question = (await db.ref("questions/" + req.query.questionId).get()).val()
+    db.ref("users/" + req.query.studentNumber + "/questions/" + req.query.questionId).get().then(userSnap => {
+        console.log("validate question : ", userSnap.exists())
+        if (req.query.studentAnswer == question.answer && userSnap.exists()) {
+            res.send({correct: true})
+            userSnap
+                .ref
+                .update({
+                    validated: true,
+                    validationDate: Date.now()
+                })
+        }
+        else {
+            res.send({correct: false})
+        }
+    })
+    
+})

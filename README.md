@@ -27,7 +27,7 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 - [x] Faire un endpoint de l'api qui déploie les questions dans la base de données. Il prend en paramètre un mot de passe. Il charge les questions qui se trouvent dans `functions/questions.json`.
 - [x] Faire une cloud function qui génère les questions d'un étudiant quand un nouvel étudiant est ajouté. Il choisit un certain nombre de questions aléatoirement.
 
-- [ ] Faire un endpoint de l'api (cloud function) qui permet de valider une question. Il prend en paramètre l'id de la question et la réponse soumise par l'utilisateur, et retourne si oui on non la réponse est correcte. De plus, si la réponse est correcte, il stocke dans la base de données que l'utilisateur a validé la question, la date a laquelle il l'a validée, et vérifie s’il a fini son parcours en premier.
+- [x] Faire un endpoint de l'api (cloud function) qui permet de valider une question. Il prend en paramètre l'id de la question et la réponse soumise par l'utilisateur, et retourne si oui on non la réponse est correcte. De plus, si la réponse est correcte, il stocke dans la base de données que l'utilisateur a validé la question, la date a laquelle il l'a validée, et vérifie s’il a fini son parcours en premier.
 
 - [ ] mettre en place des règles realtime database pour éviter que n'importe qui fasse n'importe quoi.
 
