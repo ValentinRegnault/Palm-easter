@@ -27,7 +27,6 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 - [x] Faire un endpoint de l'api qui déploie les questions dans la base de données. Il prend en paramètre un mot de passe. Il charge les questions qui se trouvent dans `functions/questions.json`.
 - [x] Faire une cloud function qui génère les questions d'un étudiant quand un nouvel étudiant est ajouté. Il choisit un certain nombre de questions aléatoirement.
 
-
 - [ ] Faire un endpoint de l'api (cloud function) qui permet de valider une question. Il prend en paramètre l'id de la question et la réponse soumise par l'utilisateur, et retourne si oui on non la réponse est correcte. De plus, si la réponse est correcte, il stocke dans la base de données que l'utilisateur a validé la question, la date a laquelle il l'a validée, et vérifie s’il a fini son parcours en premier.
 
 - [ ] mettre en place des règles realtime database pour éviter que n'importe qui fasse n'importe quoi.
@@ -36,8 +35,11 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 
 - [ ] réfléchir et mettre en place un système pour bloquer le site avant une certaine date.
 
+- [ ] faire un système pour vérifier si un utilisateur est le premier a remplir toutes ses questions 
+
 - [ ] Faire le front :
-    - [ ] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion.
+    - [ ] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion. Il faut le faire en deux étapes : d'abord on demande le nom/prenom/numero etudiant, puis si c'est la première connection on demande le parcours.
+    - [ ] Faire un système de cookie de connection
     - [ ] Écouter la bdd pour les updates des questions de l'étudiant.
     - [ ] Afficher la question en cours (la première question non validée, dans l'ordre des questions) de différente manière selon le type de question (choix multiple, réponse textuelle, vrai/faux)
     - [ ] Envoyer une requête vers le serveur quand l'utilisateur répond à une question, et afficher si la réponse est correcte ou incorrecte.
@@ -69,9 +71,9 @@ Realtime database est une base de données en arborescence, comme un fichier JSO
     - *pathValidationDate* Si l'utilisateur a terminé son parcours, la date a laquelle il l'a complété, sinon null.
     - *firstToCompletePath* true si et seulement si l'utilisateur est le premier a avoir terminé son parcours.
     - *questions* un tableau des questions qui ont été assignées a l'utilisateur. Chaque question a les champs suivants :
-    - *id* un identifiant unique
-    - *validated* true si et seulement si l'utilisateur a répondu correctement a cette question
-    - *validationDate* si la question a été validée, la date a laquelle elle a été validée, sinon null
+        - *id* un identifiant unique
+        - *validated* true si et seulement si l'utilisateur a répondu correctement a cette question
+        - *validationDate* si la question a été validée, la date a laquelle elle a été validée, sinon null
 
 
 Voici un exemple :
