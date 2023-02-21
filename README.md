@@ -25,20 +25,23 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 
 # Liste des tâches
 - [x] Faire un endpoint de l'api qui déploie les questions dans la base de données. Il prend en paramètre un mot de passe. Il charge les questions qui se trouvent dans `functions/questions.json`.
-- [ ] Faire une cloud function qui génère les questions d'un étudiant quand un nouvel étudiant est ajouté. Il choisit un certain nombre de questions aléatoirement.
+- [x] Faire une cloud function qui génère les questions d'un étudiant quand un nouvel étudiant est ajouté. Il choisit un certain nombre de questions aléatoirement.
 
 
 - [ ] Faire un endpoint de l'api (cloud function) qui permet de valider une question. Il prend en paramètre l'id de la question et la réponse soumise par l'utilisateur, et retourne si oui on non la réponse est correcte. De plus, si la réponse est correcte, il stocke dans la base de données que l'utilisateur a validé la question, la date a laquelle il l'a validée, et vérifie s’il a fini son parcours en premier.
 
+- [ ] mettre en place des règles realtime database pour éviter que n'importe qui fasse n'importe quoi.
 
-- [ ] Faire un endpoint de l'api qui prend en paramètre un mot de passe que seul le staff connaîtra, ainsi que le nom et prénom d'un étudiant, et qui retourne la liste des questions de cette personne, quelle question il a validé, et s'il a fini son parcours en premier.
+- [ ] Ajouter a chaque utilisateur un compteur de chocolat restant à aller chercher
 
+- [ ] réfléchir et mettre en place un système pour bloquer le site avant une certaine date.
 
 - [ ] Faire le front :
     - [ ] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion.
     - [ ] Écouter la bdd pour les updates des questions de l'étudiant.
     - [ ] Afficher la question en cours (la première question non validée, dans l'ordre des questions) de différente manière selon le type de question (choix multiple, réponse textuelle, vrai/faux)
     - [ ] Envoyer une requête vers le serveur quand l'utilisateur répond à une question, et afficher si la réponse est correcte ou incorrecte.
+    - [ ] Faire une page administrateur qui permet de savoir le nombre de chocolat d'un etudiant + de reset ce compteur.
 
 
 # Technologies utilisées :

@@ -1,8 +1,7 @@
 <script>
   import { initializeApp } from "firebase/app";
-  import { getDatabase } from "firebase/database";
-  import Authentification from "./lib/authentification.svelte"
-
+  import { get, getDatabase, onValue, ref, set, child, connectDatabaseEmulator} from "firebase/database";
+  import CreateAccountPage from "./lib/createAccount.svelte"
 
   const firebaseConfig = {
     apiKey: "AIzaSyCVyWcwjE_Mc5dTkzTghQpVE9G0mRqjkUk",
@@ -16,17 +15,33 @@
   };
 
   const firebaseApp = initializeApp(firebaseConfig);
-  const db = getDatabase(firebaseApp)
+  const db = getDatabase();
+
+  connectDatabaseEmulator(db, "localhost", 9000)
+
+  const dbRef = ref(db)
 
   let questionsLoaded = false;
 
-  function listenQuestions(firstName, lastName) {
-    
+  function listenQuestions(firstName, lastName, studentNumber) {
+    get(child(dbRef, `users/${studentNumber}`)).then((snapshot) => {
+      if (!snapshot.exists()) {
+        set(child(dbRef, `users/${studentNumber}`), {firstName, lastName})
+      } 
+    }).catch((error) => {
+      console.error(error);
+    });
+
+    onValue(child(dbRef, `users/${studentNumber}/questions`), onQuestionsUpdated)
+  }
+
+  function onQuestionsUpdated(snapshot) {
+    console.log("updated ! ")
   }
 </script>
 
 <main class="">
   {#if !questionsLoaded} 
-    <Authentification on:submit={(e) => listenQuestions(e.detail.firstName, e.detail.lastName)}></Authentification>
+    <CreateAccountPage on:submit={(e) => listenQuestions(e.detail.firstName, e.detail.lastName, e.detail.studentNumber)}></CreateAccountPage>
   {/if}
 </main>
