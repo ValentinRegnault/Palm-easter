@@ -75,21 +75,22 @@ exports.onUserCreated = functions.database.ref("/users/{userId}")
  * @param studentNumber the student answering the question
  * @param studentAnswer the answer sent by the student
  */
-exports.validateQuestion = functions.https.onRequest(async (req, res) => {
-    let question = (await db.ref("questions/" + req.query.questionId).get()).val()
-    db.ref("users/" + req.query.studentNumber + "/questions/" + req.query.questionId).get().then(userSnap => {
-        console.log("validate question : ", userSnap.exists())
-        if (req.query.studentAnswer == question.answer && userSnap.exists()) {
-            res.send({correct: true})
+exports.validateQuestion = functions.https.onCall(async (data, ctx) => {
+    console.log("validate question : ", data)
+    let question = (await db.ref("questions/" + data.questionId).get()).val()
+    return db.ref("users/" + data.studentNumber + "/questions/" + data.questionId).get().then(userSnap => {
+        console.log( question.answer)
+        if (userSnap.exists() && data.studentAnswer == question.answer) {
             userSnap
                 .ref
                 .update({
                     validated: true,
                     validationDate: Date.now()
                 })
+            return {correct: true}
         }
         else {
-            res.send({correct: false})
+            return {correct: false}
         }
     })
     
