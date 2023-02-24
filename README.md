@@ -38,11 +38,11 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 - [ ] faire un système pour vérifier si un utilisateur est le premier a remplir toutes ses questions 
 
 - [ ] Faire le front :
-    - [ ] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion. Il faut le faire en deux étapes : d'abord on demande le nom/prenom/numero etudiant, puis si c'est la première connection on demande le parcours.
+    - [x] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion. Il faut le faire en deux étapes : d'abord on demande le nom/prenom/numero etudiant, puis si c'est la première connection on demande le parcours.
     - [ ] Faire un système de cookie de connection
-    - [ ] Écouter la bdd pour les updates des questions de l'étudiant.
-    - [ ] Afficher la question en cours (la première question non validée, dans l'ordre des questions) de différente manière selon le type de question (choix multiple, réponse textuelle, vrai/faux)
-    - [ ] Envoyer une requête vers le serveur quand l'utilisateur répond à une question, et afficher si la réponse est correcte ou incorrecte.
+    - [x] Écouter la bdd pour les updates des questions de l'étudiant.
+    - [x] Afficher la question en cours (la première question non validée, dans l'ordre des questions) de différente manière selon le type de question (choix multiple, réponse textuelle, vrai/faux)
+    - [x] Envoyer une requête vers le serveur quand l'utilisateur répond à une question, et afficher si la réponse est correcte ou incorrecte.
     - [ ] Faire une page administrateur qui permet de savoir le nombre de chocolat d'un etudiant + de reset ce compteur.
 
 

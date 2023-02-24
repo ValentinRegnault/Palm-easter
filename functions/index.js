@@ -1,6 +1,7 @@
 const {SECRET_CODE} = require("./secret-code.json"); 
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
+const { user } = require("firebase-functions/v1/auth");
 admin.initializeApp();
 const db = admin.database();
 
@@ -12,8 +13,10 @@ const QUESTIONS_COUNT_BY_LEVEL = [0,1]
 
 
 exports.deployQuestions = functions.https.onRequest((req, res) => {
+    console.log(SECRET_CODE)
     if(!req.query.secretCode || req.query.secretCode != SECRET_CODE) {
         res.status(403).send("Le code secret " + req.query.secretCode + " n'est pas valide :/");
+        return
     }
 
     functions.logger.info("Deploying questions to the database...");
@@ -65,6 +68,7 @@ exports.onUserCreated = functions.database.ref("/users/{userId}")
             }
         }
         snapshot.ref.update({
+            chocolatesCount: 0,
             questions: choosenQuestions
         })
     })
@@ -87,6 +91,14 @@ exports.validateQuestion = functions.https.onCall(async (data, ctx) => {
                     validated: true,
                     validationDate: Date.now()
                 })
+
+            if(userSnap.val().endedPath[data.path] == undefined
+                && Object.values(userSnap.val().questions).every(q => q.validated)
+            ) {
+                let obj = {}
+                obj[data.path] = Date.now()
+                userSnap.ref.child("endedPath").update(obj)   
+            }
             return {correct: true}
         }
         else {
@@ -94,4 +106,23 @@ exports.validateQuestion = functions.https.onCall(async (data, ctx) => {
         }
     })
     
+})
+
+
+exports.inspectPlayer = functions.https.onCall(async (data, ctx) => {
+    if (data.secretCode != SECRET_CODE) {
+        throw new functions.https.HttpsError('invalid-argument', 'Code secret incorrect ! (vous avez essayer de vous connecter avec : ' + data.secretCode);
+    }
+
+    let player = (await db.ref("/users/" + data.studentNumber).get()).val()
+
+    let ranks = (await db.ref("/users").orderByChild("endedPath/" + player.currentPath).get())
+    
+    return {
+        firstName: player.firstName,
+        lastName: player.lastName,
+        chocolatesCount: player.chocolatesCount,
+        path: player.path,
+        rankInPath: rank
+    }
 })

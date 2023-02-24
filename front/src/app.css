@@ -6,3 +6,9 @@
 .gradient {
     background: linear-gradient(90deg, #D667DC 0%, #EC96B3 6.25%, #E7AD43 13.54%, #A8ED84 23.44%, #E13F85 47.92%, #DAA813 72.92%, #AC4D1B 100%);
 }
+
+.cool-border {
+    border-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(90deg, #D667DC 0%, #EC96B3 6.25%, #E7AD43 13.54%, #A8ED84 23.44%, #E13F85 47.92%, #DAA813 72.92%, #AC4D1B 100%) 1;
+}

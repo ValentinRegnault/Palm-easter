@@ -14,7 +14,7 @@ module.exports = {
         "titan-one": ['Titan One', "cursive"]
       },
       dropShadow: {
-        "neubrutalism": "-1vh 1vh 0px 0px rgba(73, 78, 176, 1)"
+        "neubrutalism": "-1vh 1vh 0px rgba(73, 78, 176, 1)"
       }
     },
   },

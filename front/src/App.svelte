@@ -7,7 +7,8 @@
   import TextInput from "./lib/TextInput.svelte";
   import ChoosePath from "./lib/ChoosePath.svelte";
   import Home from "./lib/Home.svelte"
-    import CheckAnswerButton from "./lib/checkAnswerButton.svelte";
+  import CheckAnswerButton from "./lib/checkAnswerButton.svelte";
+  import AdministrationPage from "./lib/AdministrationPage.svelte";
 
   const firebaseConfig = {
     apiKey: "AIzaSyCVyWcwjE_Mc5dTkzTghQpVE9G0mRqjkUk",
@@ -58,7 +59,7 @@
 
   function setPath(path) {
     console.log(path);
-    set(child(dbRef, `users/${studentNumber}`), {firstName, lastName, path})
+    set(child(dbRef, `users/${studentNumber}`), {firstName, lastName, currentPath: path})
     onValue(child(dbRef, `users/${studentNumber}/questions`), onQuestionsUpdated)
   }
 
@@ -112,17 +113,14 @@
   let currentPage = 0;
 </script>
 
-<main class="font-titan-one">
-  <div class="bg-primary-blue">
-    <div class="h-[30vh] flex items-center justify-center">
-        <img 
-            class="h-full"
-            src="src/assets/logo-palmeaster.png" 
-            alt=""
-        >
-    </div>
-    <h1 class="text-xl">Bienvenue dans l'aventure Palm'easter !</h1>
-    <div class="w-[100%] h-[1vh] gradient "></div>
+<main class="font-titan-one flex flex-col min-h-[100vh]">
+  <div class="big-header items-center pb-[5%]">
+    <img 
+        class="shrink min-w-0 min-h-0"
+        src="src/assets/logo-palmeaster.png" 
+        alt=""
+    > 
+    <h1 class="text-xl text-beige px-[5%]">Bienvenue dans l'aventure Palm'easter !</h1>
   </div>
   {#if currentPage == 0} 
     <Home on:next={() => currentPage = 1}></Home>
@@ -145,5 +143,34 @@
       {/if}
       <CheckAnswerButton on:click={() => checkAnswer()} state={checkAnswerButtonState}></CheckAnswerButton>
     </div>
-  {/if}
+  {:else if currentPage == 5} 
+    <h1>Félicitation ! Vous avez terminer votre parcours ! Vous pouvez passer à la Palme récupérer vos récompenses et découvrir si vous êtes le premier à avoir terminer ce parcours !</h1>
+  {:else if window.location.pathname == "/admin"}
+    <AdministrationPage functions></AdministrationPage>
+  {/if} 
 </main>
+
+
+<style>
+  .big-header {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #494EB0;
+    border-bottom-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(90deg, #D667DC 0%, #EC96B3 6.25%, #E7AD43 13.54%, #A8ED84 23.44%, #E13F85 47.92%, #DAA813 72.92%, #AC4D1B 100%) 1;
+  }
+
+  .mini-header {
+    background-color: #494EB0;
+    width: 100%; 
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    border-bottom-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(90deg, #D667DC 0%, #EC96B3 6.25%, #E7AD43 13.54%, #A8ED84 23.44%, #E13F85 47.92%, #DAA813 72.92%, #AC4D1B 100%) 1;
+  }
+
+</style>
