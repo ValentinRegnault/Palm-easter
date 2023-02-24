@@ -67,13 +67,12 @@ Realtime database est une base de données en arborescence, comme un fichier JSO
 - *users* contient tous les utilisateurs. Chaque utilisateur a différent champs :
     - *firstName* le prénom de l'utilisateur
     - *lastName* le nom de famille de l'utilisateur
-    - *choosenPath* le parcours choisi par l'utilisateur
-    - *pathValidationDate* Si l'utilisateur a terminé son parcours, la date a laquelle il l'a complété, sinon null.
-    - *firstToCompletePath* true si et seulement si l'utilisateur est le premier a avoir terminé son parcours.
+    - *currentPath* le parcours actuellement en cours de l'étudiant
+    - *endedPaths* Un objet qui contient en clef les parcours terminés par l'étudiant, et en valeur la date (timestamp) de validation
     - *questions* un tableau des questions qui ont été assignées a l'utilisateur. Chaque question a les champs suivants :
         - *id* un identifiant unique
         - *validated* true si et seulement si l'utilisateur a répondu correctement a cette question
-        - *validationDate* si la question a été validée, la date a laquelle elle a été validée, sinon null
+        - *validationDate* si la question a été validée, la date (timestamp) a laquelle elle a été validée, sinon null
 
 
 Voici un exemple :
