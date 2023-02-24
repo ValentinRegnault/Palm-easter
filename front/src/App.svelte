@@ -129,7 +129,7 @@
     <h1 class="text-xl text-beige px-[5%]">Bienvenue dans l'aventure Palm'easter !</h1>
   </div>
   {#if window.location.pathname == "/admin"}
-    <AdministrationPage functions database={db} paths={paths}></AdministrationPage>
+    <AdministrationPage functions={functions} database={db} paths={paths}></AdministrationPage>
   {:else if currentPage == 0} 
     <Home on:next={() => currentPage = 1}></Home>
   {:else if currentPage == 1} 

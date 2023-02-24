@@ -116,3 +116,15 @@ exports.validateQuestion = functions.https.onCall(async (data, ctx) => {
     
 })
 
+/** Reset le compteur de chocolat d'un joueur
+ * @param studentNumber le numéro étudiant du joueurs
+ * @param secretCode le code secret
+ */
+exports.resetChocolates = functions.https.onCall((data, ctx) => {
+    if(data.secretCode != SECRET_CODE) throw new functions.https.HttpsError("permission-denied", "Le code secret " + data.secretCode + " est incorrect");
+    if(!data.studentNumber) throw new functions.https.HttpsError("invalid-argument", "Le numéro étudiant est incorrect")
+
+    db.ref("users/" + data.studentNumber).update({chocolatesCount: 0})
+
+    return true
+}) 
