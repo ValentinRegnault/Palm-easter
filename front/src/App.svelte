@@ -33,13 +33,17 @@
   }
 
   const dbRef = ref(db)
-
+  let paths; 
   let studentNumber;
   let firstName;
   let lastName;
   let currentQuestion;
   let userAnswer;
   let checkAnswerButtonState = 0;
+  let currentPath;
+
+  get(child(dbRef, "paths")).then(ps => paths = ps.val())
+
 
   function listenQuestions() {
     get(child(dbRef, `users/${studentNumber}`)).then((snapshot) => {
@@ -59,7 +63,8 @@
 
   function setPath(path) {
     console.log(path);
-    set(child(dbRef, `users/${studentNumber}`), {firstName, lastName, currentPath: path})
+    currentPath = path
+    update(child(dbRef, `users/${studentNumber}`), {firstName, lastName, currentPath: path})
     onValue(child(dbRef, `users/${studentNumber}/questions`), onQuestionsUpdated)
   }
 
@@ -94,7 +99,8 @@
     requestValidateQuestion({
       questionId: currentQuestion.questionId,
       studentNumber,
-      studentAnswer: userAnswer
+      studentAnswer: userAnswer,
+      path: currentPath
     })
     .then((response) => {
       console.log("coucou !")
@@ -122,7 +128,9 @@
     > 
     <h1 class="text-xl text-beige px-[5%]">Bienvenue dans l'aventure Palm'easter !</h1>
   </div>
-  {#if currentPage == 0} 
+  {#if window.location.pathname == "/admin"}
+    <AdministrationPage functions database={db} paths={paths}></AdministrationPage>
+  {:else if currentPage == 0} 
     <Home on:next={() => currentPage = 1}></Home>
   {:else if currentPage == 1} 
     <AuthentificationPage on:submit={(e) => {
@@ -132,7 +140,7 @@
       listenQuestions()
     }}></AuthentificationPage> 
   {:else if currentPage == 3}
-    <ChoosePath on:path-choosen={(e) => {setPath(e.detail.path); currentPage = 4}}></ChoosePath>
+    <ChoosePath paths={paths} on:path-choosen={(e) => {setPath(e.detail.path); currentPage = 4}}></ChoosePath>
   {:else if currentPage == 4 && currentQuestion}
     <div>
       <h1>{currentQuestion.questionText}</h1>
@@ -145,8 +153,6 @@
     </div>
   {:else if currentPage == 5} 
     <h1>Félicitation ! Vous avez terminer votre parcours ! Vous pouvez passer à la Palme récupérer vos récompenses et découvrir si vous êtes le premier à avoir terminer ce parcours !</h1>
-  {:else if window.location.pathname == "/admin"}
-    <AdministrationPage functions></AdministrationPage>
   {/if} 
 </main>
 

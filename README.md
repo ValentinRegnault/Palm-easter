@@ -31,11 +31,15 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 
 - [ ] mettre en place des règles realtime database pour éviter que n'importe qui fasse n'importe quoi.
 
-- [ ] Ajouter a chaque utilisateur un compteur de chocolat restant à aller chercher
+- [x] Ajouter a chaque utilisateur un compteur de chocolat restant à aller chercher
 
 - [ ] réfléchir et mettre en place un système pour bloquer le site avant une certaine date.
 
-- [ ] faire un système pour vérifier si un utilisateur est le premier a remplir toutes ses questions 
+- [x] faire un système pour vérifier si un utilisateur est le premier a remplir toutes ses questions 
+
+- [ ] sécuriser toute les cloud function en prévoyant les arguments invalides qui pourrait êtres passés
+
+- [ ] système d'image pour les questions
 
 - [ ] Faire le front :
     - [x] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion. Il faut le faire en deux étapes : d'abord on demande le nom/prenom/numero etudiant, puis si c'est la première connection on demande le parcours.
@@ -44,6 +48,10 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
     - [x] Afficher la question en cours (la première question non validée, dans l'ordre des questions) de différente manière selon le type de question (choix multiple, réponse textuelle, vrai/faux)
     - [x] Envoyer une requête vers le serveur quand l'utilisateur répond à une question, et afficher si la réponse est correcte ou incorrecte.
     - [ ] Faire une page administrateur qui permet de savoir le nombre de chocolat d'un etudiant + de reset ce compteur.
+    - [x] Faire un composant text input
+    - [ ] Faire un composant bouton
+    - [ ] Faire le bouton de validation de question
+    - [ ] Faire un "j'accepte les cookies" qui donne vraiment des cookies.
 
 
 # Technologies utilisées :

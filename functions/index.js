@@ -1,7 +1,7 @@
 const {SECRET_CODE} = require("./secret-code.json"); 
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-const { user } = require("firebase-functions/v1/auth");
+const { user, HttpsError } = require("firebase-functions/v1/auth");
 admin.initializeApp();
 const db = admin.database();
 
@@ -20,7 +20,8 @@ exports.deployQuestions = functions.https.onRequest((req, res) => {
     }
 
     functions.logger.info("Deploying questions to the database...");
-    const questions = require("./questions.json");  
+    const questions = require("./questions.json"); 
+    const paths = require("./parcours.json") 
 
     const questionsRef = db.ref("questions");
 
@@ -38,6 +39,8 @@ exports.deployQuestions = functions.https.onRequest((req, res) => {
     .catch(() => {
         res.status(403).send("An error occured :/");
     })
+
+    db.ref("paths").set(paths);
 })
 
 
@@ -78,21 +81,26 @@ exports.onUserCreated = functions.database.ref("/users/{userId}")
  * @param questionId the id of the question
  * @param studentNumber the student answering the question
  * @param studentAnswer the answer sent by the student
+ * @param path The path currently played by the student
  */
 exports.validateQuestion = functions.https.onCall(async (data, ctx) => {
+    if (!data.questionId || !data.studentNumber || !data.studentAnswer || !data.path) throw new functions.https.HttpsError("invalid-argument", "Arguments are missing. You should call validateQuestion with arguments : questionId, studentNumber, studentAnswer, path")
+
     console.log("validate question : ", data)
     let question = (await db.ref("questions/" + data.questionId).get()).val()
-    return db.ref("users/" + data.studentNumber + "/questions/" + data.questionId).get().then(userSnap => {
-        console.log( question.answer)
-        if (userSnap.exists() && data.studentAnswer == question.answer) {
-            userSnap
+    return db.ref("users/" + data.studentNumber + "/questions/" + data.questionId).get().then(async questionSnap => {
+        if (questionSnap.exists() && data.studentAnswer == question.answer) {
+            questionSnap
                 .ref
                 .update({
                     validated: true,
                     validationDate: Date.now()
                 })
 
-            if(userSnap.val().endedPath[data.path] == undefined
+            let userSnap = await db.ref("users/" + data.studentNumber).get()
+            userSnap.ref.update({chocolatesCount: userSnap.val().chocolatesCount + 1})
+            console.log(userSnap.val());
+            if((userSnap.val().endedPath == undefined || userSnap.val().endedPath[data.path] == undefined)
                 && Object.values(userSnap.val().questions).every(q => q.validated)
             ) {
                 let obj = {}
@@ -108,21 +116,3 @@ exports.validateQuestion = functions.https.onCall(async (data, ctx) => {
     
 })
 
-
-exports.inspectPlayer = functions.https.onCall(async (data, ctx) => {
-    if (data.secretCode != SECRET_CODE) {
-        throw new functions.https.HttpsError('invalid-argument', 'Code secret incorrect ! (vous avez essayer de vous connecter avec : ' + data.secretCode);
-    }
-
-    let player = (await db.ref("/users/" + data.studentNumber).get()).val()
-
-    let ranks = (await db.ref("/users").orderByChild("endedPath/" + player.currentPath).get())
-    
-    return {
-        firstName: player.firstName,
-        lastName: player.lastName,
-        chocolatesCount: player.chocolatesCount,
-        path: player.path,
-        rankInPath: rank
-    }
-})
