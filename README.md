@@ -41,6 +41,8 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
 
 - [ ] système d'image pour les questions
 
+- [ ] ajouter les parcours aux questions, les choisirs aléatoirement dans un parcours etc
+
 - [ ] Faire le front :
     - [x] Faire un formulaire qui permet de s'authentifier (nom et prénom). Il ajoute à la bdd l'étudiant si c'est sa première connexion. Il faut le faire en deux étapes : d'abord on demande le nom/prenom/numero etudiant, puis si c'est la première connection on demande le parcours.
     - [ ] Faire un système de cookie de connection
@@ -52,6 +54,7 @@ Le staff doit avoir un accès simple aux parcours et aux questions qui ont été
     - [ ] Faire un composant bouton
     - [ ] Faire le bouton de validation de question
     - [ ] Faire un "j'accepte les cookies" qui donne vraiment des cookies.
+    - [ ] icons : refaire ceux deja fait et ajouter celui des questions 
 
 
 # Technologies utilisées :
@@ -65,7 +68,8 @@ Le front sera fait avec svelte (un framework pour aller *beaucoup* plus vite), v
 Realtime database est une base de données en arborescence, comme un fichier JSON. La structure de ce JSON est la suivante :
 
 
-- Il y a deux objets racines : *questions* et *users*
+- Il y a trois objets racines : *questions*,  *users* et *paths*
+- *paths* est un tableaux avec les noms des parcours.
 - *questions* contient toutes les questions. Chaque question a différent champs :
     - *questionText* le texte de la question
     - *answer* la réponse de la question

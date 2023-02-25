@@ -1,6 +1,39 @@
 {
   "rules": {
-    ".read": true,
-    ".write": true
+    ".write": false,
+    "paths": {".read": true},
+    "questions": {
+      "questionText": {
+        ".read": true
+      },
+      "answer": {
+        ".read": false
+      },
+      "choices": {".read": true},
+      "questionType": {".read": true},
+      "level": {".read": true}
+    },
+    "users": {
+      ".read": true,
+      "$userId": {
+        ".write": "newData.exist()",
+        ".validate": "!data.exist() && newData.hasChildren(['firstName', 'lastName', 'currentPath'])",
+        "firstName": {
+          ".validate": "newData.isString() && newData.val().length < 200"
+        },
+        "lastName": {
+          ".validate": "newData.isString() && newData.val().length < 200"
+        },
+        "currentPath": {
+          ".validate": "typeof newData.val() == 'number'"
+        },
+        "endedPaths": {
+          ".write": false
+        },
+        "questions": {
+          ".write": false
+        }
+      }
+    }
   }
 }

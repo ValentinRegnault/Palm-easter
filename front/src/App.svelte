@@ -38,7 +38,7 @@
   let firstName;
   let lastName;
   let currentQuestion;
-  let userAnswer;
+  let studentAnswer;
   let checkAnswerButtonState = 0;
   let currentPath;
 
@@ -96,10 +96,11 @@
   }
 
   function checkAnswer() {
+    console.log(currentQuestion.questionId, studentNumber, studentAnswer, currentPath )
     requestValidateQuestion({
       questionId: currentQuestion.questionId,
       studentNumber,
-      studentAnswer: userAnswer,
+      studentAnswer,
       path: currentPath
     })
     .then((response) => {
@@ -145,9 +146,9 @@
     <div>
       <h1>{currentQuestion.questionText}</h1>
       {#if currentQuestion.questionType == "multipleChoices"}
-        <ChoiceInput bind:value={userAnswer}></ChoiceInput>
+        <ChoiceInput bind:value={studentAnswer}></ChoiceInput>
       {:else if currentQuestion.questionText == "textAnswer"}
-        <TextInput bind:value={userAnswer}></TextInput>
+        <TextInput bind:value={studentAnswer} label="Votre réponse..."></TextInput>
       {/if}
       <CheckAnswerButton on:click={() => checkAnswer()} state={checkAnswerButtonState}></CheckAnswerButton>
     </div>

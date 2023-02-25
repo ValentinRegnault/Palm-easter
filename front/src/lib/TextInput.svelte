@@ -13,6 +13,11 @@
 </div>
 
 <style>
+    .cool-border-bottom {
+        transition: border-bottom-width 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        border-bottom-width: 0;
+    }
+
     .cool-border-bottom:focus {
         border-bottom-width: 4px;
         border-style: solid;
