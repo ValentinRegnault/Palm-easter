@@ -11,7 +11,8 @@ module.exports = {
         "primary-blue": "#494EB0"
       },
       fontFamily: {
-        "titan-one": ['Titan One', "cursive"]
+        "titan-one": ['Titan One', "cursive"],
+        "francois-one": ['Francois One', "sans-serif"]
       },
       dropShadow: {
         "neubrutalism": "-1vh 1vh 0px rgba(73, 78, 176, 1)"

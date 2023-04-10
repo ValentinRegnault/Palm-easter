@@ -1,16 +1,601 @@
-[
-    {
-        "questionText": "Qui est Alan Turing ?",
-        "answer": "Le fondateur de la calculabilité",
-        "questionType": "multipleChoices",
-        "choices": ["Le créateur du premier ordinateur", "l'inventeur de code hamming", "Le créateur de linux", "le fondateur de la calculabilité"],
-        "level": 2
+{
+    "paths": ["Informatique", "Pop culture", "Istic/beaulieu"],
+    "questions": {
+        "0": {
+            "questionText": "Qui est Alan Turing ?",
+            "answer": "le fondateur de la calculabilité",
+            "questionType": "singleChoice",
+            "choices": ["le créateur du premier ordinateur", "l'inventeur de code hamming", "Le créateur de linux", "Le fondateur de la calculabilité"],
+            "level": 2,
+            "image": "alanturing.jpg",
+            "path": "Informatique"
+        },
+        "1": {
+            "questionText": "Quel est le nom de famille de l'informaticienne la plus connue de l'histoire ?",
+            "answer": "lovelace",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 2,
+            "image": "adalovelace.jpeg",
+            "path": "Informatique"
+        },
+        "2": {
+            "questionText": "Un meｓｓａｇe secｒeｔ codé ｃοmme sur twitter",
+            "answer": "lovepalme",
+            "questionType" : "textAnswer",
+            "choices": null,
+            "level": 6,
+            "image": "twitter-secret-message.png",
+            "path": "Informatique"
+        },
+        "3": {
+            "questionText": "Voici la réponse : \"nl zkp g'gdx ezqop ypp fqtxg oi essezpce, sp yi ulmv ueolmu dyt byqt sp ge vzqdpv\". Oups, j'ai perdu la clef !",
+            "answer": "la vie c'est comme une boite de chocolat, on ne sait jamais sur quoi on va tomber",
+            "questionType" : "textAnswer",
+            "choices": null,
+            "level": 6,
+            "image": "twitter-secret-message.png",
+            "path": "Informatique"
+        },
+        "4": {
+            "questionText": "Quel est le nom de la maison “Gryffindor” du foyer de l’istic? (au dessus de la cafétéria)",
+            "answer": "houblondor",
+            "questionType" : "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "harrypotter.jpg",
+            "path": "Pop culture"
+        },
+        "5" : {
+            "questionText": "Quel est le nom de la maison “Ravenclaw” du foyer de l’istic? (au dessus de la cafétéria)",
+            "answer": "poufchouffe",
+            "questionType" : "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "harrypotter.jpg",
+            "path": "Pop culture"
+        },
+        "6" : {
+            "questionText": "Quel est le nom de la maison Slytherin du foyer de l’istic? (au dessus de la cafétéria)",
+            "answer": "sersbatard",
+            "questionType" : "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "harrypotter.jpg",
+            "path": "Pop culture"
+        },
+        "7": {
+            "questionText": "Quel est le nom de la maison “Hufflepuff” du foyer de l’istic? (au dessus de la cafétéria)",
+            "answer": "silvousplait",
+            "questionType" : "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "harrypotter.jpg",
+            "path": "Pop culture"
+        },
+        "8": {
+            "questionText": "Je suis une ville où des joueurs fan de pop culture cherchent à gagner un oeuf. Quel est mon nom?",
+            "answer": "columbus",
+            "questionType" : "textAnswer",
+            "choices": null,
+            "level": 2,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "9": {
+            "questionText": "Je suis un œuf qui te casse les oreilles sauf sous l’eau. Dans quel film je me trouve?",
+            "answer": "harry potter et la coupe de feu",
+            "questionType" : "singleChoice",
+            "choices": ["Harry Potter et la Coupe de feu", "Harry Potter et la Chambre des Secrets", "Harry Potter et le Prisonnier d'Azkaban", "Harry Potter et l'Ordre du Phénix", "Les Visiteurs", "Roméo et Juliette", "Le Seigneur des Anneaux, Tome 4"],
+            "level": 2,
+            "image": "harrypotter.jpg",
+            "path": "Pop culture"
+        },
+        "10": {
+            "questionText": "Dans quel film français deux personnes du moyen âge se retrouve dans le monde actuel?",
+            "answer": "les visiteurs",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 2,
+            "image": "time.jpg",
+            "path": "Pop culture"
+        },
+        "11": {
+            "questionText": "De quel film est tiré cette réplique : “Quand je suis content je vomi” ?",
+            "answer": "la cité de la peur",
+            "questionType":"singleChoice",
+            "choices": ["Le Seigneur des Anneaux, Tome 4", "Les Visiteurs", "Roméo et Juliette", "La Cité de la peur", "Les Schtroumpf 2", "Les Tuches"],
+            "level": 2,
+            "image": "toiletpaper.jpg",
+            "path": "Pop culture"
+        },
+        "12": {
+            "questionText": "Je suis un film d’horreur où une famille se retrouve dans un hôtel en hiver. Dans quelle chambre l’enfant n’est-il pas censé aller?",
+            "answer": "237",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 2,
+            "image": "time.jpg",
+            "path": "Pop culture"
+        },
+        "13": {
+            "questionText": "Quel est le prochain jeu de l’univers minecraft à sortir?",
+            "answer": "minecraft legends",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 2,
+            "image": "minecraft.jpg",
+            "path": "Pop culture"
+        },
+        "14": {
+            "questionText": "Quelle célèbre chaîne Youtube française possède une banane comme photo de profil ?",
+            "answer": "wankil studio - laink et terracid",
+            "questionType": "singleChoice",
+            "choices": ["Cyprien", "wankil studio - laink et terracid", "Epicurieux", "Harry Potter et l'Ordre du Phénix", "Squeezie", "Hardisk"],
+            "level": 3,
+            "image": "banane.jpg",
+            "path": "Pop culture"
+        },
+        "15": {
+            "questionText": "Quel sont les deux mots affichés à l’écran à 13:10 dans la vidéo de squeezie “J'ai pu acheter ça sur internet”?",
+            "answer": "un pepene",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 8,
+            "image": "pasta.jpg",
+            "path": "Pop culture"
+        },
+        "16": {
+            "questionText": "Dans la vidéo “Mon meilleur ami est un porcelet - VAIANA” du youtubeur MATH, comment est décrit l’après-midi de Vaiana, affiché à l'écran à 4:34?",
+            "answer": "foutue",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 8,
+            "image": "castle.jpg",
+            "path": "Pop culture"
+        },
+        "17": {
+            "questionText": "Dans la vidéo “Souffrir de la Tourette : ÇA FAIT QUOI ?” du youtubeur Poisson Fécon, quel mot apparaît à l’écran à 6:50?",
+            "answer": "coprolalie",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 3,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "18": {
+            "questionText": "Dans Mario Bross, de quelle couleur est le champignon qui rend Mario minuscule?",
+            "answer": "bleu",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 8,
+            "image": "mario.jpg",
+            "path": "Pop culture"
+        },
+        "19": {
+            "questionText": "Je suis un champion support ni homme ni femme, je suis un golem qui consomme du mana. Je me bat au corps à corps, je viens de la région de Zaun et j’ai été créé en 2009. Qui suis-je?",
+            "answer": "blitzcrank",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 7,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "20": {
+            "questionText": "Quel est le surnom de Nathan Drake du jeu Uncharted ?",
+            "answer": "nate",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "21": {
+            "questionText": " Je suis un personnage provenant d’une contrée lointaine et je ressent continuellement de la joie, et aucune autre émotion. Je possède une force extraordinaire, obtenue grâce au démon de la joie. Je traque des monstres gigantesques et dangereux afin de les détruire. Je me bat avec une lame-fouet redoutable et je suis capable de m’envelopper de brume. Quel est mon nom?",
+            "answer": "nilah",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "22": {
+            "questionText": "Dans la version française de League Of Legends, Milio site les paroles d’une chanson d’un célèbre artiste français, quelle est cette chanson?",
+            "answer": "la terre est ronde",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "23": {
+            "questionText": "Je suis un jeu vidéo qui a été adapté en film avec l’acteur de spider man dedans, qui suis-je ?",
+            "answer": "uncharted",
+            "questionType": "textAnswer",
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "24": {
+            "questionText": "Dans Osu, combien de temps dure la beatmap de tutoriel “new beginnings”? (donnez sous la forme “minutes:secondes”, avec un 0 devant les secondes si nécessaire)",
+            "answer": "2:09",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "25": {
+            "questionText": "Dans “Bells in Santa Fe” de Halsey combien de jours de Weekend Jésus à-t-il besoin?",
+            "answer": "3",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "26": {
+            "questionText": "Dans la musique “La Quête” d’Orelsan, que répond-t-il à sa mère quand elle lui dit “t’es pas censé être là”?",
+            "answer": "près d’toi, c’est là ma place",
+            "questionType": "singleChoice",
+            "choices": ["Jrentre chez moi", "Je suis pas censé être nulle part", "Au fond, jcrois qu'la Terre est ronde","près d’toi, c’est là ma place"],
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "27": {
+            "questionText": "Selon le groupe Ultra Vomit, dans le ventre de quoi vivons-nous tous?",
+            "answer": "un chien géant",
+            "questionType": "singleChoice",
+            "choices": ["un chien géant", "Un chat géant", "Un poisson géant", "Un serpent géant"],
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "28": {
+            "questionText": "Le clip est constitué de crabes qui dansent, quel est le titre de la musique?",
+            "answer": "crab rave",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "29": {
+            "questionText": "Dans le 5ème titre de l’album “stup forever” de stupeflip, quel est le nom de l’ours dont il parle à un moment de la chanson?",
+            "answer": "colargol",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "30": {
+            "questionText": "Dans quelle série d’animation japonaise une “noob” utilise un bouclier qui mange les monstres ? (Nom français complet)",
+            "answer": "bofuri : je suis pas venue ici pour souffrir alors j'ai tout mis en défense",
+            "questionType": "singleChoice",
+            "choices": ["Naruto", "Harry Potter et l'Ordre du Phénix","bofuri : je suis pas venue ici pour souffrir alors j'ai tout mis en défense", "Moi, moche et méchant 2", "Princesse Mononoké"],
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "31": {
+            "questionText": "Dans quelle série d’animation japonaise retrouve-t-on un homme aux cheveux blanc qui semble n’avoir aucune émotion et qui juge des âmes? (nom anglais)",
+            "answer": "death parade",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "32": {
+            "questionText": " Dans quelle série d’animation japonaise un garçon aux cheveux rose se retrouve couvert de tatouages quand il est contrôlé par un démon?",
+            "answer": "jujutsu kaisen",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "33": {
+            "questionText": "Devines cette série d’animation japonaise très mal résumé : C’est un animé où les personnages principaux ont beaucoup de secrets. Leur gosse devrait être mentalement instable étant donné que ses deux parents tuent des gens mais bizarrement elle aime plutôt ça. Elle aimerait même être comme son père et elle est très bête. Sa mère est assez impulsive et violente et ne se retient pas de casser la gueule aux gens un peu suspects qui s'approchent trop de sa fille. (nom anglais)",
+            "answer": "spy x family",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "34": {
+            "questionText": "Devines cette série d’animation japonaise très mal résumé : C’est une mère qui n’est pas vraiment sympa. Elle exploite ses enfants et ils ne sortent jamais plus loin que leur jardin. Vu qu’ils en ont marre, ils partent à l’aventure en dehors de leur jardin et manquent à plusieurs reprises de tous mourir. (nom anglais)",
+            "answer": "the promised neverland",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "35" : {
+            "questionText": "Dans quel jeux vidéo de PlayStation retrouve-t-on la musique du groupe Muse “butterflies and hurricanes” en générique?",
+            "answer": "formula one 05",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 7,
+            "image": "logo-palmeaster.png",
+            "path": "Pop culture"
+        },
+        "36": {
+            "questionText": "Des badges rouges sont installés sur les trois salles associatives de l’Istic ! Trouves les et note la phrase que tu trouves en combinant les informations notées dessus!",
+            "answer": "", 
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "37": {
+            "questionText": "Combien de tables y a t'il à la cafet du bat 12D?",
+            "answer": "", 
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "38": {
+            "questionText": "Combien de chaises y a t'il dans l’amphi P?",
+            "answer": "", 
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "39": {
+            "questionText": "Coches les 4 associations de l’Istic parmi les suivantes :",
+            "answer": ["robocoop","la palme","aramiage", "la big"],
+            "questionType": "multipleChoices",
+            "choices": ["isati", "robocoop", "l’ares", "roll & draw", "la palme", "aramiage", "cyberschool", "la big", "kuro usagi no ryoda", "e-bigo"],
+            "level": 2,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "40": {
+            "questionText": "Y a t'il eu une association de bateau à voile à l’Istic ?",
+            "answer": "oui",
+            "questionType": "singleChoice",
+            "choices": ["oui", "non"],
+            "level": 2,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "41": {
+            "questionText": "Quel était l’ancien nom de l’Istic : ",
+            "answer": "ifsic",
+            "questionType": "singleChoice",
+            "choices": ["UFR informatique et électronique", "IFCIC", "IFSIC", "ISTIC ça n’a jamais changer en fait", "ESIR", "ESTIC"],
+            "level": 2,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "42": {
+            "questionText": "L’été, il est autoriser de se baigner dans l’étang a coté du bâtiment 12D",
+            "answer": "faux",
+            "questionType": "singleChoice",
+            "choices": ["vrai", "faux"],
+            "level": 3,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "43": {
+            "questionText": "Il y a déjà eu un festival de musique organisé par une asso hébergée à l'istic :",
+            "answer": "vrai",
+            "questionType": "singleChoice",
+            "choices": ["vrai", "faux"],
+            "level": 3,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "44": {
+            "questionText": "L’association de Robotique Robocoop a été créer en : ",
+            "answer": "2022",
+            "questionType": "singleChoice",
+            "choices": ["1998", "2022", "2019", "2011", "2024"],
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "45": {
+            "questionText": "Quel est le nom de l’ancien club de robotique de l’Istic : ",
+            "answer": "c2r1",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "46": {
+            "questionText": "Combien y-a-t-il de fenêtres dans la salle associative de Robocoop (La I-191, venez un midi ca sera surement ouvert!)",
+            "answer": "",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "47": {
+            "questionText": "Il est autorisé de danser dans le foyer de l’Istic :",
+            "answer": "faux, les activités sportives sont interdites.",
+            "questionType": "singleChoice",
+            "choices": ["vrai, les activités sportives sont interdite mais la danse fait exception.", "faux, les activités sportives sont interdites."],
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "48": {
+            "questionText": "Il est autorisé de faire le poirier dans le foyer de l’Istic",
+            "answer": "faux",
+            "questionType": "singleChoice",
+            "choices": ["vrai", "faux"],
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "49": {
+            "questionText": "Quel est la marque des bouteilles d’eau dans le foyer de l’Istic?",
+            "answer": "evian",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "50": {
+            "questionText": "Combien d'heure a durer le Palm'hackathon 2023",
+            "answer": "24",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "51": {
+            "questionText": "La nuit de l’Info, organisée cette année par la palme, avait comme sujet:",
+            "answer": "le sida",
+            "questionType": "singleChoice",
+            "choices": ["le sida", "la drogue", "le cyber-harcèlement", "la pollution", "la dépression"],
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "52": {
+            "questionText": "La nuit de l’Info, organisée cette année par la palme, avait comme sujet:",
+            "answer":  "l’ensemble des réponses",
+            "questionType": "singleChoice",
+            "choices": ["De la VR", "De la switch sur écran géant", "Du Just-Dance", "Des loup-garous", "Des parties d’échecs", "Des dizaines de jeux de sociétés", "L’ensemble des réponses"],
+            "level": 6,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "53": {
+            "questionText": "Rendez vous dans la salle I-55, levez la tête et vous trouverez le chemin.",
+            "answer": "mission finale",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 7,
+            "image": "logo-palmeaster.png",
+            "path": "Istic/beaulieu"
+        },
+        "55": {
+            "questionText": "Et la dernière question est : ... Haha, non, en fait je te donne aucune piste. Débrouille toi !",
+            "answer": "palme is my life",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 7,
+            "image": "special-image.png",
+            "path": "Informatique"
+        },
+        "56": {
+            "questionText": "Je suis un algorithme qui permet de trier rapidement et en place une grande quantité de données. Je suis le principe de diviser pour mieux régner. Qui suis-je ?",
+            "answer": "tri rapide",
+            "questionType": "singleChoice",
+            "choices": ["Tri insertion", "Tri Fusion", "Dijkstra", "Tri Rapide"],
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "57": {
+            "questionText": "Je suis une technologie permettant de naviguer sur internet sans laisser de trace. Mon nom est basé sur un légume, et fait 3 lettres. Qui suis-je ?",
+            "answer": "tor",
+            "questionType": "textAnswer",
+            "choices":null,
+            "level": 3,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "58": {
+            "questionText": "Je suis une technique qui permet de créer des modèles prédictifs et des intelligences artificielles. L’idée de mon fonctionnement est inspiré de la biologie humaine. Qui suis-je ?",
+            "answer": "les réseaux de neurones",
+            "questionType": "singleChoice",
+            "choices": ["Les réseaux de neurones", "Le biomimétisme", "Les tables de chromosomes", "Les diagrammes de veines", "Le traitement intelligent rétroprogrammé", "la transformation de fourier"],
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "59": {
+            "questionText": "Je suis un langage de programmation populaire pour la création de site web dynamiques. Mon nom est ce que l’on appel un sigle récursif, c’est à dire que mon sigle est contenu dans ma forme étendue. Par exemple, “Bing” est un autre sigle récursif qui signifie “Bing Is Not Google”. Pas mal, hein ? Bah moi aussi j’ai un nom comme ça. Qui suis-je ?",
+            "answer": "php",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 3,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "61": {
+            "questionText": "Que signifie “Sensible à la casse” ?",
+            "answer": "les majuscules et minuscules sont importantes",
+            "questionType":"singleChoice", 
+            "choices": ["Le mot de passe n’est pas sécurisé", "le logiciel à été cracké", "Les majuscules et minuscules sont importantes", "Un objet technologique, généralement une voiture, est capable de détecter des pièces défectueuses dans son système", "Un codage qui ne permet pas de retrouver le message d’origine si certain bit sont éronés, par exemples s’ils ont mal été transmis." ],
+            "level": 2,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "62": {
+            "questionText": "Je suis un ensemble de technique de sécurité informatique qui consiste à dissimuler des données dans une image ou un fichier audio, d’apparence anodins. Mon nom est la composition de deux mots de grec ancien qui signifient “étanche” et “écriture”. Qui suis-je ? (Solution : un nom commun, sans déterminant. Les majuscules et minuscules ne sont pas importantes)",
+            "answer": "stéganographie",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "63": {
+            "questionText": "267 914 296 est un nombre de la suite de fibonnaci. Quel est son rang dans la suite ? Autrement dit, quel est sa position dans la suite ?",
+            "answer": "42",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "64": {
+            "questionText": "Mon nom est celui de quelque-chose utiliser en cuisine. Je suis un nombre aléatoire stocké avec les informations d’un utilisateurs dans un système de connection. Je suis ajouter au mot de passe de l’utilisateur avant qu’il soit soit hacher, pour eviter de stocker la même chose si plusieurs utilisateurs ont le même mot de passe. Qui suis-je ? (Solution en français, 3 lettres, les majuscules et minuscules ne sont pas importantes)",
+            "answer": "sel",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 4,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "65": {
+            "questionText": "Quel est la somme des nombres de 1 à 42 ?",
+            "answer": "903",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 5,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        },
+        "66": {
+            "questionText": "Suivez les QR codes ! Premier indice : “La porte de Robocoop”",
+            "answer": "jadorelapalme",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "logo-palmeaster.png",
+            "path": "Informatique"
+        }
     },
-    {
-        "questionText": "Quel est le nom de famille de l'informaticienne la plus connue de l'histoire ?",
-        "answer": "Lovelace",
-        "questionType": "textAnswer",
-        "choices": null,
-        "level": 1
+    "users": {
+        "11111111": {
+            "chocolatesCount": 0,
+            "currentPath": "Informatique",
+            "firstName": "Valetnin",
+            "lastName": "SDkjqnd",
+            "questions": {
+                "14": {"validated": false},
+                "42": {"validated": false}
+            }
+        }
     }
-]
+}

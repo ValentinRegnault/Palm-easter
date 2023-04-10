@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { get, getDatabase, onValue, ref, set, update, child, connectDatabaseEmulator} from "firebase/database";
+import {initializeApp} from "firebase/app"
 
 const firebaseConfig = {
     apiKey: "AIzaSyCVyWcwjE_Mc5dTkzTghQpVE9G0mRqjkUk",
@@ -12,25 +13,27 @@ const firebaseConfig = {
     measurementId: "G-EQ844GLK3B"
 };
 
-describe("The database for Palm'easter", () => {
+describe("The database for Palm'easter", async() => {
     const firebaseApp = initializeApp(firebaseConfig);
-    const db = getDatabase();
-    const dbRef = ref(db);
 
     let questionId;
 
-    if(window.location.hostname == "localhost" || window.location.hostname == "127.0.0.1") {
-        connectDatabaseEmulator(db, "localhost", 9000)
-    }
+    const db = getDatabase();
+    connectDatabaseEmulator(db, "localhost", 9000)
+    const dbRef = ref(db);
+    get(child(dbRef, "paths")).then(snap=>console.log(snap.val()))
 
     beforeAll(() => {
-        return Promise((res, _rej) => {
-            await set(child(db, "users/1"), {
+        return new Promise(async (res, _rej) => {
+
+            console.log("couco");
+            await update(child(dbRef, "users/1"), {
                 firstName: "Test",
                 lastName: "Person",
                 currentPath: "Parcours 2"
-            })
-    
+            }).catch(console.error)
+
+            console.log("cdslkcndsl")
             let firstCall = true
             onValue(child(dbRef, "users/1"), snap => {
                 if(firstCall) firstCall = false;
@@ -44,22 +47,13 @@ describe("The database for Palm'easter", () => {
 
     it("Do math stuff", () => expect(2 + 2).toBe(4))
 
-    it("Allows to create a new user, with a valid path", async () => {
+    it("Allows to create a new user", async () => {
         expect(await set(child(db, "users/23111989"), {
             firstName: "Valentin",
             lastName: "Regnault",
             currentPath: "Parcours 1"
         }))
         .not.toThrow();    
-    })
-
-    it("Forbid to create a new user, with an invalid path", async () => {
-        expect(await set(child(db, "users/23111989"), {
-            firstName: "Valentin",
-            lastName: "Regnault",
-            currentPath: "Invalid path"
-        }))
-        .toThrow();    
     })
 
     it("Forbid to modify a user after it has been created", async () => {

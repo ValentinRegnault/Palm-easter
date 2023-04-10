@@ -20,7 +20,12 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "rewrites": [ {
+      "source": "/admin",
+      "destination": "/index.html"
+    } ]
+  
   },
   "emulators": {
     "functions": {
@@ -36,5 +41,8 @@
       "enabled": true
     },
     "singleProjectMode": true
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

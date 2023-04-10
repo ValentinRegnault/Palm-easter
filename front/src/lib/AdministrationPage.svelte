@@ -2,7 +2,7 @@
     import {httpsCallable} from "firebase/functions"
     import { get, onValue, ref, set, update, child} from "firebase/database";
     import TextInput from "./TextInput.svelte";
-    import studentIcon from "../assets/student-icon.png"
+    import studentIcon from "../assets/student-icon.svg"
     
     export let functions
     export let database
@@ -16,6 +16,7 @@
 
     async function inspect () {
         let allUsers = (await get(child(dbRef,"users"))).val()
+        console.log(allUsers)
         let inspectedUser = allUsers[studentNumber];
         let ranks = {}
         for (const path of paths) {

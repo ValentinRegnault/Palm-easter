@@ -3,29 +3,32 @@
     ".write": false,
     "paths": {".read": true},
     "questions": {
-      "questionText": {
-        ".read": true
-      },
-      "answer": {
-        ".read": false
-      },
-      "choices": {".read": true},
-      "questionType": {".read": true},
-      "level": {".read": true}
+      "$questionId" : {
+        "questionText": {
+          ".read": true
+        },
+        "answer": {
+          ".read": false
+        },
+        "choices": {".read": true},
+        "questionType": {".read": true},
+        "level": {".read": true},
+        "image": {".read": true}
+      }
     },
     "users": {
       ".read": true,
       "$userId": {
-        ".write": "newData.exist()",
-        ".validate": "!data.exist() && newData.hasChildren(['firstName', 'lastName', 'currentPath'])",
+        ".write": "newData.exists()",
+        ".validate": "!data.exists() && newData.hasChildren(['firstName', 'lastName', 'currentPath']) && $userId.length == 8",
         "firstName": {
-          ".validate": "newData.isString() && newData.val().length < 200"
+          ".validate": "newData.isString() && newData.val().length < 200 && newData.val().length > 1"
         },
         "lastName": {
-          ".validate": "newData.isString() && newData.val().length < 200"
+          ".validate": "newData.isString() && newData.val().length < 200 && newData.val().length > 1"
         },
         "currentPath": {
-          ".validate": "typeof newData.val() == 'number'"
+          ".validate": "newData.isString()"
         },
         "endedPaths": {
           ".write": false

@@ -1,0 +1,1 @@
+export const COOLDOWN_MILISECONDS = 1000 * 60 * 60;

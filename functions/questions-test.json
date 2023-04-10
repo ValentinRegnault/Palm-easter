@@ -1,0 +1,23 @@
+{
+    "paths": ["Informatique", "Pop culture", "Istic/beaulieu"],
+    "questions": {
+        "0": {
+            "questionText": "Qui est Alan Turing ?",
+            "answer": ["Le fondateur de la calculabilité"],
+            "questionType": "singleChoice",
+            "choices": ["Le créateur du premier ordinateur", "l'inventeur de code hamming", "Le créateur de linux", "Le fondateur de la calculabilité"],
+            "level": 0,
+            "image": "alanturing.jpg",
+            "path": "Informatique"
+        },
+        "1": {
+            "questionText": "Quel est le nom de famille de l'informaticienne la plus connue de l'histoire ?",
+            "answer": "lovelace",
+            "questionType": "textAnswer",
+            "choices": null,
+            "level": 1,
+            "image": "adalovelace.jpeg",
+            "path": "Informatique"
+        }
+    }
+}
